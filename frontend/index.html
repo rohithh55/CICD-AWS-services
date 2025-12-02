@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Directory</title>
+</head>
+<body>
+  <h1>Employee List</h1>
+  <div id="list"></div>
+
+<script>
+ fetch("http://localhost:5000/employees")
+   .then(res => res.json())
+   .then(data => {
+     document.getElementById("list").innerHTML =
+       data.map(emp => `<p>${emp[1]}</p>`).join("");
+   });
+</script>
+
+</body>
+</html>
+
